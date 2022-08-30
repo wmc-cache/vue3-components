@@ -1,10 +1,10 @@
 <template>
    <div>
-      <Popover position="bottom" style="margin:100px">
+      <Popover position="bottom" style="margin-top:100px">
          <template v-slot:content>
             <span>
                <test></test>
-               <!-- <tree :data="arr"></tree> -->
+               <tree :data="arr"></tree>
             </span>
          </template>
          <button>按钮</button>

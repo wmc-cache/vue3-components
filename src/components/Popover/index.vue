@@ -1,6 +1,7 @@
 <template>
     <div ref="popover" class="t-popover">
-        <div v-if="visible" ref="contentWrapper" class="t-content-wrapper" :class="{ [`position-${position}`]: true }">
+        <div v-if="visible" ref="contentWrapper" class="t-content-wrapper"
+            :class="{ [`position-${calculatePosition}`]: true }">
             <slot name="content" :close="close"></slot>
         </div>
         <!-- span标签增加display: inline-block; 解决包裹元素高度一致的问题 -->
@@ -34,7 +35,7 @@ const visible = ref(false)
 const contentWrapper = ref<any>(null)
 const triggerWrapper = ref<any>(null)
 const popover = ref<any>(null)
-let  CalculatePosition:position = props.position
+const calculatePosition = ref<position>(props.position) 
 
 onMounted(() => {
     if (props.trigger === 'click') {
@@ -68,18 +69,14 @@ const positionContent = () => {
         } else {
             document.body.appendChild(contentWrapper.value)
         }
-        const { width, height, top, left } = triggerWrapper.value.getBoundingClientRect()
-        const { width: contentWidth, height: contentHeight, top: contentTop, left: contentLeft } = contentWrapper.value.getBoundingClientRect()
-        console.log(">>>>>>",width, height, top, left)
-        console.log(">>>>>>", contentWidth, contentHeight, contentTop, contentLeft)
-        if (top < contentHeight) {
-            CalculatePosition = 'bottom'
-            console.log(top < contentHeight)
-        }
-        // if (left < contentWidth) {
-        //     CalculatePosition = 'right'
-        // }
-        // scrollX和scrollY分别是文档相对于当前浏览器视口已滚动的距离。
+        const { width, height, top, left, right,bottom } = triggerWrapper.value.getBoundingClientRect()
+        const { width: contentWidth, height: contentHeight } = contentWrapper.value.getBoundingClientRect()
+
+        if (top < contentHeight && calculatePosition.value==='top') calculatePosition.value = 'bottom'
+        if (left < contentWidth && calculatePosition.value==='left') calculatePosition.value = 'right'
+        if (right + contentWidth > window.innerWidth && calculatePosition.value==='right') calculatePosition.value = 'left'
+        if (bottom + contentWidth > window.innerHeight && calculatePosition.value === 'bottom') calculatePosition.value = 'top'
+        
         let positions = {
             top: {
                 top: top + window.scrollY,
@@ -98,8 +95,8 @@ const positionContent = () => {
                 left: left + width + window.scrollX,
             },
         }
-        contentWrapper.value.style.left = positions[CalculatePosition].left + 'px'
-        contentWrapper.value.style.top = positions[CalculatePosition].top + 'px'
+        contentWrapper.value.style.left = positions[calculatePosition.value].left + 'px'
+        contentWrapper.value.style.top = positions[calculatePosition.value].top + 'px'
     }
 }
 const onClickDocument = (e: Event) => { // 如果点击在popover 则让popover自己去处理，document不管
