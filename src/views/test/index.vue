@@ -14,22 +14,23 @@
 
 <script lang="ts" setup>
 import test from '@/views/test/test'
-import tree from '@/views/test/tree.vue'
+import tree from '@/components/Recursive/index.vue'
 import Popover from '@/components/Popover/index.vue'
 interface Tree {
    rank: number
    text: string
-   children?: Tree[]
+   children?: Tree[],
+   show:boolean
 }
 const arr: Tree[] | [] = [
    {
-      rank: 1, text: "菜单1", children: [
+      rank: 1, text: "菜单1", show:true , children: [
          {
-            rank: 2, text: "菜单1-1", children: [
+            rank: 2, text: "菜单1-1",show:false ,children: [
                {
-                  rank: 3, text: "菜单1-1-1", children: [{
-                     rank: 4, text: "菜单1-1-2", children: [{
-                        rank: 5, text: "菜单1-1-3"
+                  rank: 3, text: "菜单1-1-1",show:true,children: [{
+                     rank: 4, text: "菜单1-1-2",show:false ,children: [{
+                        rank: 5, text: "菜单1-1-3",show:true
                      }]
                   }]
                },
@@ -37,7 +38,7 @@ const arr: Tree[] | [] = [
          },
       ],
    },
-   { rank: 1, text: "菜单2" }
+   { rank: 1, text: "菜单2",show:true }
 ]
 </script>
 
