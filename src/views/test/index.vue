@@ -8,6 +8,7 @@
             </span>
          </template>
          <button>按钮</button>
+         <Icon icon="eye"></Icon>
       </Popover>
    </div>
 </template>
@@ -16,6 +17,7 @@
 import test from '@/views/test/test'
 import tree from '@/components/Recursive/index.vue'
 import Popover from '@/components/Popover/index.vue'
+import Icon from "@/components/Icon/index"
 interface Tree {
    rank: number
    text: string
