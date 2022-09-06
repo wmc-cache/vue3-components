@@ -1,6 +1,6 @@
 <template>
    <div>
-      <Popover position="bottom" style="margin-top:100px">
+      <!-- <Popover position="bottom" style="margin-top:100px">
          <template v-slot:content>
             <span>
                <test></test>
@@ -9,7 +9,13 @@
          </template>
          <button>按钮</button>
          <Icon icon="eye"></Icon>
-      </Popover>
+      </Popover> -->
+      
+         <Radio>123</Radio>
+         <Radio>123</Radio>
+         <Radio>123</Radio>
+      
+
    </div>
 </template>
 
@@ -18,6 +24,7 @@ import test from '@/views/test/test'
 import tree from '@/components/Recursive/index.vue'
 import Popover from '@/components/Popover/index.vue'
 import Icon from "@/components/Icon/index"
+import Radio from "@/components/Radio/index.vue"
 interface Tree {
    rank: number
    text: string

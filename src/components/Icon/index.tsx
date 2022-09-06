@@ -44,12 +44,12 @@ const svgMap = {
   ),
 }
 const renderDom = (props: iconProps) => {
-  const { type = 'fixed', size = 12, style = {backgroundColor:"#ddd",fill:"#fff"} } = props
+  const { type = 'fixed', size = 12, style = {} } = props
   if (type in svgMap) {
     const svg = svgMap[type]
-    if(size){
-       style.width = size + 'px'
-       style.height = size + 'px'
+    if (size) {
+      style.width = size + 'px'
+      style.height = size + 'px'
     }
     if (svg && svg.props) {
       svg.props.style = style
