@@ -12,9 +12,11 @@
   "dependencies": {
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
+    "handlebars": "^4.7.7",
     "pinia": "^2.0.14",
     "vue": "^3.2.26",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "chalk": "^4.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
