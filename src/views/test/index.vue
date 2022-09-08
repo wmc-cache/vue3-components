@@ -10,12 +10,12 @@
          <button>按钮</button>
          <Icon icon="eye"></Icon>
       </Popover> -->
-      
-         <Radio>123</Radio>
-         <Radio>123</Radio>
-         <Radio>123</Radio>
-      
-
+        <RadioGroup>
+       
+         <Radio value="www">123</Radio>
+         <Radio value="eee">123</Radio>
+         <Radio value="ccc">123</Radio>
+        </RadioGroup>
    </div>
 </template>
 
@@ -25,6 +25,7 @@ import tree from '@/components/Recursive/index.vue'
 import Popover from '@/components/Popover/index.vue'
 import Icon from "@/components/Icon/index"
 import Radio from "@/components/Radio/index.vue"
+import RadioGroup from '@/components/RadioGroup/radio-group.vue'
 interface Tree {
    rank: number
    text: string
