@@ -1,17 +1,7 @@
 <template>
    <div>
-      <!-- <Popover position="bottom" style="margin-top:100px">
-         <template v-slot:content>
-            <span>
-               <test></test>
-               <tree :data="arr"></tree>
-            </span>
-         </template>
-         <button>按钮</button>
-         <Icon icon="eye"></Icon>
-      </Popover> -->
+      <Menu :data="arr"></Menu>
         <RadioGroup>
-       
          <Radio value="www">123</Radio>
          <Radio value="eee">123</Radio>
          <Radio value="ccc">123</Radio>
@@ -20,8 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import test from '@/views/test/test'
-import tree from '@/components/Recursive/index.vue'
+import Menu from '@/components/Menu/index.vue'
 import Popover from '@/components/Popover/index.vue'
 import Icon from "@/components/Icon/index"
 import Radio from "@/components/Radio/index.vue"

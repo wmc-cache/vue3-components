@@ -27,8 +27,8 @@ const props = defineProps({
     default: "",
   },
   disabled: {
-    type: String,
-    default: "",
+    type:Boolean,
+    default:false,
   },
 });
 </script>
