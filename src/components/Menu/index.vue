@@ -15,7 +15,6 @@
 
 <script lang="ts" setup>
 import { reactive } from "vue";
-import "./index.scss";
 interface Tree {
   rank: number;
   text: string;
@@ -36,3 +35,7 @@ export default {
   name: "tree",
 };
 </script>
+
+<style scoped lang="scss">
+@import "./index.scss";
+</style>
