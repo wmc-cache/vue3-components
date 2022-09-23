@@ -61,7 +61,7 @@ const arr: Tree[] | [] = [
       </RadioGroup></Affix
     >
     <div style="height:1000px"></div> -->
-    <Avatar shape="square" src="https://apic.douyucdn.cn/upload/avanew/face/201705/12/18/432ff01cc247e5eeacf9b3ee6764049c_middle.jpg" :size="64">
+    <Avatar>
       吴梦成
     </Avatar>
   </div>

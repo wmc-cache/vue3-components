@@ -10,9 +10,9 @@
     }"
     ref="wraperRef"
   >
-    <div v-if="props.src">
+    <template v-if="props.src">
       <img :src="props.src" />
-    </div>
+    </template>
     <span ref="stringRef" class="ant-avatar-string">
       <slot> </slot>
     </span>
