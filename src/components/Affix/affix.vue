@@ -28,7 +28,6 @@ const positionStyle = ref({});
 const affixed = ref(false);
 
 const updatePosition = () => {
-  console.log("updataPosition");
   if (!wrapRef.value) return;
   const { top, width, height } = wrapRef.value.getBoundingClientRect();
   console.log(top, width, height);
@@ -43,10 +42,8 @@ const updatePosition = () => {
       width,
       height,
     };
-  } else if (top >= props.offsetTop) {
-    console.log(affixed.value)
+  } else if (top > props.offsetTop) {
     affixed.value = false;
-    console.log(affixed.value)
   }
 };
 const newUpdatePosition = debounce(updatePosition, 500);
