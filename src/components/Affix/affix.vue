@@ -6,53 +6,63 @@
     :style="wrapStyle"
     :class="{ fixed: affixed }"
   >
-    {{ wrapStyle }}
-    <div v-if="affixed" :style="positionStyle"></div>
     <slot></slot>
   </div>
+  <div ref="placeholderRef" v-if="affixed" :style="placeholderStyle"></div>
 </template>
 
 <script lang="ts" setup>
-import { ref, nextTick } from "vue";
-import { debounce } from "@/util/debounce";
-import ResizeObserver from "resize-observer-polyfill";
+import { ref, onMounted, onUnmounted } from "vue";
 const props = defineProps({
   offsetTop: {
     type: Number,
-    default: 50,
+    default: 100,
   },
 });
 const wrapRef = ref<HTMLElement>();
+const placeholderRef = ref<HTMLElement>();
 const wrapStyle = ref({});
-const positionStyle = ref({});
+const placeholderStyle = ref({});
 const affixed = ref(false);
 
 const updatePosition = () => {
   if (!wrapRef.value) return;
   const { top, width, height } = wrapRef.value.getBoundingClientRect();
-  console.log(top, width, height);
-  if (top < props.offsetTop && !affixed.value) {
+  let placeholderTop = 0;
+  if (placeholderRef.value) {
+    const { top } = placeholderRef.value.getBoundingClientRect();
+    placeholderTop = top;
+  }
+  if (top <= props.offsetTop && !affixed.value) {
     affixed.value = true;
     wrapStyle.value = {
-      width,
-      height,
+      width: width + "px",
+      height: height + "px",
       top: props.offsetTop + "px",
     };
-    positionStyle.value = {
-      width,
-      height,
+    placeholderStyle.value = {
+      width: width + "px",
+      height: height + "px",
     };
   } else if (top > props.offsetTop) {
     affixed.value = false;
+    placeholderStyle.value = {
+      width: 0,
+      height: 0,
+    };
+  } else if (placeholderTop >= props.offsetTop) {
+    affixed.value = false;
+    placeholderStyle.value = {
+      width: 0,
+      height: 0,
+    };
   }
 };
-const newUpdatePosition = debounce(updatePosition, 500);
-window.addEventListener("scroll", newUpdatePosition, false);
-
-const ob = new ResizeObserver(newUpdatePosition);
-
-nextTick(() => {
-  if (wrapRef.value) ob.observe(wrapRef.value);
+onMounted(() => {
+  window.addEventListener("scroll", updatePosition, false);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", updatePosition, false);
 });
 </script>
 
