@@ -28,7 +28,6 @@
 </template>
 
 <script lang="ts" setup>
-import "./index.scss";
 import { onMounted, onUnmounted, ref } from "vue";
 import { emitter } from "../RadioGroup/radio-group.vue";
 const props = defineProps({
@@ -65,4 +64,9 @@ const handleClick = (e: Event) => {
   checked.value = !checked.value;
 };
 </script>
+
+
+<style lang="scss" scoped>
+  @import "./index.scss";
+  </style>
 

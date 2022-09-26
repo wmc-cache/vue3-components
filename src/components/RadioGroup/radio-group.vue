@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-import "./index.scss";
 import mitt from "mitt" 
 import { onMounted, onUnmounted } from "vue-demi";
 export const emitter = mitt();
@@ -32,4 +31,8 @@ const props = defineProps({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+  @import "./index.scss";
+  </style>
 
