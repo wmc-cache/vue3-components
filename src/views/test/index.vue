@@ -56,7 +56,7 @@ const arr: Tree[] | [] = [
     <Avatar> 吴梦成1 </Avatar>
     <Radio value="123"></Radio>
     <Affix>
-      <Avatar> 吴梦成0 </Avatar>
+      <Avatar src="http://wework.qpic.cn/bizmail/ibLia2gPtIN3csXurYHibwBcwLYzEC8oYs7jWoLsnJzCE6dicpxTZWUzMg/0"> 吴梦成0 </Avatar>
     </Affix>
     <Avatar> 吴梦2 </Avatar>
     <div style="height: 1000px"></div>
