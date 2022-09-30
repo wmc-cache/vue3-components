@@ -6,6 +6,7 @@ import Radio from "@/components/Radio/index.vue";
 import RadioGroup from "@/components/RadioGroup/radio-group.vue";
 import Affix from "@/components/Affix/affix.vue";
 import Avatar from "@/components/Avatar/avatar.vue";
+import ProgressVue from "@/components/Progress/progress.vue";
 interface Tree {
   rank: number;
   text: string;
@@ -55,11 +56,13 @@ const arr: Tree[] | [] = [
     <div style="height: 500px"></div>
     <Avatar> 吴梦成1 </Avatar>
     <Radio value="123"></Radio>
-    <Affix>
+    <Affix :offsetTop="300">
+      <ProgressVue></ProgressVue>
       <Avatar src="http://wework.qpic.cn/bizmail/ibLia2gPtIN3csXurYHibwBcwLYzEC8oYs7jWoLsnJzCE6dicpxTZWUzMg/0"> 吴梦成0 </Avatar>
     </Affix>
     <Avatar> 吴梦2 </Avatar>
     <div style="height: 1000px"></div>
+   
   </div>
 </template>
 
