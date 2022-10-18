@@ -2,12 +2,14 @@
   <Teleport to="body">
     <div
       ref="contentRef"
-      :style="positionStyle"
-      class="overlay"
       v-if="props.visible"
+      class="overlay"
+      :style="positionStyle"
     >
-      <div v-if="props.hasMask">
-        <slot></slot>
+      <div>
+        <div v-if="props.hasMask">
+          <slot></slot>
+        </div>
       </div>
     </div>
   </Teleport>
@@ -19,7 +21,7 @@ import { PlacementType, getPlacement } from "./placement";
 const props = defineProps({
   visible: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   hasMask: {
     type: Boolean,
@@ -33,6 +35,7 @@ const props = defineProps({
     type: HTMLElement,
   },
 });
+
 const contentRef = ref(null);
 let positionStyle = ref({});
 const emit = defineEmits(["close"]);
@@ -54,24 +57,28 @@ const handleMouseDown = (e: Event) => {
   emit("close");
 };
 
-onMounted(() => {
+const initOverlayPosition = () => {
+  positionStyle.value = {};
   nextTick(() => {
     if (props.target && contentRef.value) {
       let positionData: { top?: string; left?: string } = getPlacement({
         target: props.target,
         overlay: contentRef.value,
+        placement: props.placement,
       });
+      console.log("positionData", positionData);
       positionData.top = `${positionData.top}px`;
       positionData.left = `${positionData.left}px`;
       positionStyle.value = positionData;
     }
   });
-});
+};
 
 watch(
   () => props.visible,
   () => {
     if (props.visible) {
+      initOverlayPosition();
       document.addEventListener("mousedown", handleMouseDown);
     } else {
       document.removeEventListener("mousedown", handleMouseDown);
@@ -79,7 +86,6 @@ watch(
   },
   {
     immediate: true,
-    //deep:true
   }
 );
 </script>

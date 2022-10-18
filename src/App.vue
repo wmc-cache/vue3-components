@@ -3,13 +3,14 @@
 </template>
 
 <script setup lang="ts">
-
-
 </script>
 
 <style lang="scss">
-*{
+* {
   padding: 0;
   margin: 0;
+}
+.body {
+  height: 100%;
 }
 </style>

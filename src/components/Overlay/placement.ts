@@ -47,6 +47,8 @@ export function getPlacement({
   if (!target || !overlay) {
     return {};
   }
+
+  //debugger
   const {
     width: twidth,
     height: theight,
@@ -55,12 +57,28 @@ export function getPlacement({
   } = target.getBoundingClientRect();
   const { width: owidth, height: oheight } = overlay.getBoundingClientRect();
   const { left: cleft, top: ctop } = document.body.getBoundingClientRect();
+
   const {
     scrollWidth: cwidth,
     scrollHeight: cheight,
     scrollTop: cscrollTop,
     scrollLeft: cscrollLeft,
   } = document.body;
+  //debugger
+  console.log(
+    twidth,
+    theight,
+    tleft,
+    ttop,
+    owidth,
+    oheight,
+    cwidth,
+    cheight,
+    cleft,
+    ctop,
+    placement,
+    document.body.scrollHeight
+  );
 
   function getTopLeft(placement: PlacementType) {
     let points: PointsType = opoints;
@@ -127,6 +145,8 @@ export function getPlacement({
     };
   }
 
+  //debugger;
+
   let realPlacement = placement;
   const { left, top } = getTopLeft(placement as PlacementType);
 
@@ -136,6 +156,7 @@ export function getPlacement({
     left: left,
   };
 
+  console.log("cheight",cheight);
   if (
     left < 0 ||
     top < 0 ||
