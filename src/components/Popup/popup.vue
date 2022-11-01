@@ -1,0 +1,18 @@
+<template>
+  <div>popup</div>
+</template>
+
+<script lang="ts" setup>
+const props = defineProps({
+    demo: {
+        type: String,
+        default: '',
+
+    },
+})
+</script>
+
+<style lang="scss" scoped>
+@import "./index.scss";
+</style>
+
