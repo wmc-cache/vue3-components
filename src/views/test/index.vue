@@ -8,6 +8,7 @@ import Affix from "@/components/Affix/affix.vue";
 import Avatar from "@/components/Avatar/avatar.vue";
 import ProgressVue from "@/components/Progress/progress.vue";
 import Overlay from "@/components/Overlay/overlay.vue";
+import Select from "@/components/Select/select.vue";
 import { ref } from "vue";
 interface Tree {
   rank: number;
@@ -57,7 +58,7 @@ const buttonRef = ref(null);
 
 <template>
   <div>
-     <div style="height:600px"></div>
+    <!-- <div style="height:600px"></div>
 
     <Overlay
       v-if="buttonRef"
@@ -70,9 +71,10 @@ const buttonRef = ref(null);
 
     <button style="margin-left: 200px" ref="buttonRef" @click="visible = true">
       click
-    </button>
-
-   
+    </button> -->
+    <div>
+      <Select></Select>
+    </div>
   </div>
 </template>
 

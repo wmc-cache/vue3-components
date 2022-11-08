@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, watch, ref, reactive, onMounted, nextTick } from "vue";
+import { PropType, watch, ref, nextTick } from "vue";
 import { PlacementType, getPlacement } from "./placement";
 const props = defineProps({
   visible: {

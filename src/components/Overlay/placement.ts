@@ -85,7 +85,13 @@ export function getPlacement({
     if (placement && placement in placementMap) {
       points = placementMap[placement] as PointsType;
     }
-
+    console.log(
+      "ttop - ctop + cscrollTop",
+      ttop,
+      ctop,
+      cscrollTop,
+      ttop - ctop + cscrollTop
+    );
     const baseTop = ttop - ctop + cscrollTop;
     const baseLeft = tleft - cleft + cscrollLeft;
 
@@ -156,7 +162,7 @@ export function getPlacement({
     left: left,
   };
 
-  console.log("cheight",cheight);
+  console.log("cheight", cheight);
   if (
     left < 0 ||
     top < 0 ||
