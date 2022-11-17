@@ -47,7 +47,7 @@ const handleMouseDown = (e: Event) => {
     safeNodeList.push(contentRef.value);
   }
   const clickNode = e.target;
-  console.log("clickNode", clickNode);
+
   for (let index = 0; index < safeNodeList.length; index++) {
     const node = safeNodeList[index];
     if (node && node.contains(clickNode)) {
@@ -66,7 +66,6 @@ const initOverlayPosition = () => {
         overlay: contentRef.value,
         placement: props.placement,
       });
-      console.log("positionData", positionData);
       positionData.top = `${positionData.top}px`;
       positionData.left = `${positionData.left}px`;
       positionStyle.value = positionData;

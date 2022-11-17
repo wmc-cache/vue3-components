@@ -48,7 +48,6 @@ export function getPlacement({
     return {};
   }
 
-  //debugger
   const {
     width: twidth,
     height: theight,
@@ -64,21 +63,7 @@ export function getPlacement({
     scrollTop: cscrollTop,
     scrollLeft: cscrollLeft,
   } = document.body;
-  //debugger
-  console.log(
-    twidth,
-    theight,
-    tleft,
-    ttop,
-    owidth,
-    oheight,
-    cwidth,
-    cheight,
-    cleft,
-    ctop,
-    placement,
-    document.body.scrollHeight
-  );
+
 
   function getTopLeft(placement: PlacementType) {
     let points: PointsType = opoints;
@@ -151,7 +136,7 @@ export function getPlacement({
     };
   }
 
-  //debugger;
+
 
   let realPlacement = placement;
   const { left, top } = getTopLeft(placement as PlacementType);
@@ -162,7 +147,7 @@ export function getPlacement({
     left: left,
   };
 
-  console.log("cheight", cheight);
+
   if (
     left < 0 ||
     top < 0 ||

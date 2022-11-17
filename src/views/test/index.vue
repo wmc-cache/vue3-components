@@ -58,22 +58,12 @@ const buttonRef = ref(null);
 
 <template>
   <div>
-    <!-- <div style="height:600px"></div>
-
-    <Overlay
-      v-if="buttonRef"
-      :target="buttonRef"
-      :visible="visible"
-      @close="visible = false"
-      placement="bottomRight"
-    >
-    </Overlay>
-
-    <button style="margin-left: 200px" ref="buttonRef" @click="visible = true">
-      click
-    </button> -->
     <div>
-      <Select></Select>
+      <Select>
+        <!-- <template #item="{ id, text }">
+          <div>{{ id }}-{{ text }}</div>
+        </template> -->
+      </Select>
     </div>
   </div>
 </template>
