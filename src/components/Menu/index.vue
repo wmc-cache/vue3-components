@@ -1,15 +1,16 @@
 <template>
   <div v-for="(item, index) in data" :key="index" class="wrap">
-    <div
-      @click="item.show = !item.show"
-      :style="{ marginLeft: item.rank * 5 + 'px' }"
-      class="item"
-    >
+    <div @click="item.show = !item.show" :style="{ marginLeft: item.rank * 5 + 'px' }" class="item">
       <span v-if="item.children"> > </span>
       <span v-else>+</span>
       {{ item.text }}
     </div>
-    <tree v-if="item.children && item.show" :data="item.children"> </tree>
+
+
+    <tree v-if="item.children && item.show" :data="item.children">
+
+
+    </tree>
   </div>
 </template>
 

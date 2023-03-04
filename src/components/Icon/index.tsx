@@ -1,4 +1,6 @@
-import type { CSSProperties } from 'vue'
+import { CSSProperties } from 'vue'
+
+import { cloneElement } from "@/util"
 export interface iconProps {
   className?: string
   type?: 'fixed' | 'copy' | 'close'
@@ -43,19 +45,24 @@ const svgMap = {
     </svg>
   ),
 }
-const renderDom = (props: iconProps) => {
+
+const Icon = (props: iconProps) => {
+
   const { type = 'fixed', size = 12, style = {} } = props
-  if (type in svgMap) {
-    const svg = svgMap[type]
-    if (size) {
-      style.width = size + 'px'
-      style.height = size + 'px'
-    }
-    if (svg && svg.props) {
-      svg.props.style = style
-    }
-    return svg
+
+  if (size) {
+    style.width = size + 'px'
+    style.height = size + 'px'
   }
+
+  if (type in svgMap) {
+
+    const svg = svgMap[type]
+
+    return cloneElement(svg, { style, a: "123" })
+  }
+
   return <i></i>
 }
-export default renderDom
+
+export default Icon

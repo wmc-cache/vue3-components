@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // import Menu from "@/components/Menu/index.vue";
 // import Popover from "@/components/Popover/index.vue";
-// import Icon from "@/components/Icon/index";
+import Icon from "@/components/Icon/index";
 import Radio from "@/components/Radio/index.vue";
 import RadioGroup from "@/components/RadioGroup/radio-group.vue";
 import Affix from "@/components/Affix/affix.vue";
@@ -59,14 +59,16 @@ const buttonRef = ref(null);
 <template>
   <div>
     <div>
+
+      <Icon :size="50" type="fixed"></Icon>
+
       <Select>
         <!-- <template #item="{ id, text }">
-          <div>{{ id }}-{{ text }}</div>
-        </template> -->
+                            <div>{{ id }}-{{ text }}</div>
+                          </template> -->
       </Select>
     </div>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
