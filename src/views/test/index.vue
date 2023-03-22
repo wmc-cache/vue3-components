@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-// import Menu from "@/components/Menu/index.vue";
-// import Popover from "@/components/Popover/index.vue";
+import Menu from "@/components/Menu/index.vue";
 import Icon from "@/components/Icon/index";
 import Radio from "@/components/Radio/index.vue";
 import RadioGroup from "@/components/RadioGroup/radio-group.vue";
@@ -9,7 +8,12 @@ import Avatar from "@/components/Avatar/avatar.vue";
 import ProgressVue from "@/components/Progress/progress.vue";
 import Overlay from "@/components/Overlay/overlay.vue";
 import Select from "@/components/Select/select.vue";
+import List from "@/components/List/list.vue";
+import manyPoint from "@/components/Point/manyPoint.vue";
+import { useDebounceRef } from "@/hooks/useDebounceRef";
+import virtualList from "@/components/VirtualList/virtual-list.vue";
 import { ref } from "vue";
+
 interface Tree {
   rank: number;
   text: string;
@@ -52,23 +56,39 @@ const arr: Tree[] | [] = [
   },
   { rank: 1, text: "菜单2", show: true },
 ];
-const visible = ref(false);
-const buttonRef = ref(null);
+
+const value = useDebounceRef('')
 </script>
 
 <template>
   <div>
-    <div>
+    <virtual-list :viewport-height="500" :itemHeight="200" :items="[{
+      id: 1, name: '111'
+    }, {
+      id: 2, name: '111'
+    }, {
+      id: 3, name: '111'
+    }, {
+      id: 4, name: '111'
+    }, {
+      id: 5, name: '111'
+    }]">
+    </virtual-list>
 
-      <Icon :size="50" type="fixed"></Icon>
+    <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
-      <Select>
-        <!-- <template #item="{ id, text }">
-                            <div>{{ id }}-{{ text }}</div>
-                          </template> -->
-      </Select>
-    </div>
+    <!-- <List></List> -->
+
+    <!-- <many-point></many-point> -->
+
+    <!-- <Icon :size="50" type="fixed"></Icon>
+
+                                                          <Select>
+                                                            <template #item="{ id, text }">
+                                                              <div>{{ id }}-{{ text }}</div>
+                                                            </template>
+                                                          </Select> -->
+
   </div>
 </template>
 
-<style></style>
