@@ -19,7 +19,9 @@
     "pinia": "^2.0.14",
     "resize-observer-polyfill": "^1.5.1",
     "vue": "^3.2.26",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

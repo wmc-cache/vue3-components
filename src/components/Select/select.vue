@@ -3,7 +3,7 @@
   <div ref="inputRef" style="width: 300px; margin-left: 400px; margin-top: 200px">
     <el-input @click="visibleRef = true" @focus="visibleRef = true" type="text" />
   </div>
-  <Overlay v-if="inputRef" :target="inputRef" :visible="visibleRef" @close="visibleRef = false" placement="top">
+  <Overlay v-if="inputRef" :target="inputRef" :visible="visibleRef" @close="visibleRef = false" :placement="placement">
     <div class="select-item" :class="{ 'item-checked': item.checked }" @click="selectItem(item)"
       v-for="(item, index) in listData" :key="index">
       <slot name="item" v-bind="item">
@@ -17,6 +17,10 @@
 import { PropType, ref, computed, reactive } from "vue";
 import Overlay from "@/components/Overlay/overlay.vue";
 const props = defineProps({
+  placement: {
+    type: String,
+    default: 'bottom'
+  },
   visible: {
     type: Boolean,
     default: false,

@@ -10,8 +10,8 @@ import Overlay from "@/components/Overlay/overlay.vue";
 import Select from "@/components/Select/select.vue";
 import List from "@/components/List/list.vue";
 import manyPoint from "@/components/Point/manyPoint.vue";
+import pdf from "@/components/Pdf/pdf.vue";
 import { useDebounceRef } from "@/hooks/useDebounceRef";
-import virtualList from "@/components/VirtualList/virtual-list.vue";
 import { ref } from "vue";
 
 interface Tree {
@@ -62,18 +62,7 @@ const value = useDebounceRef('')
 
 <template>
   <div>
-    <virtual-list :viewport-height="500" :itemHeight="200" :items="[{
-      id: 1, name: '111'
-    }, {
-      id: 2, name: '111'
-    }, {
-      id: 3, name: '111'
-    }, {
-      id: 4, name: '111'
-    }, {
-      id: 5, name: '111'
-    }]">
-    </virtual-list>
+   <pdf></pdf>
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
@@ -81,13 +70,13 @@ const value = useDebounceRef('')
 
     <!-- <many-point></many-point> -->
 
-    <!-- <Icon :size="50" type="fixed"></Icon>
+    <!-- <Icon :size="50" type="fixed"></Icon> -->
 
-                                                          <Select>
-                                                            <template #item="{ id, text }">
-                                                              <div>{{ id }}-{{ text }}</div>
-                                                            </template>
-                                                          </Select> -->
+    <!-- <Select>
+                    <template #item="{ id, text }">
+                      <div>{{ id }}-{{ text }}</div>
+                    </template>
+                  </Select> -->
 
   </div>
 </template>
