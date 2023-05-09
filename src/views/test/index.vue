@@ -57,27 +57,26 @@ const arr: Tree[] | [] = [
   { rank: 1, text: "菜单2", show: true },
 ];
 
-const value = useDebounceRef('')
+const value = useDebounceRef("");
 </script>
 
 <template>
   <div>
-   <pdf></pdf>
+    <!-- <pdf></pdf> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
     <!-- <List></List> -->
 
-    <!-- <many-point></many-point> -->
+    <many-point></many-point>
 
     <!-- <Icon :size="50" type="fixed"></Icon> -->
 
     <!-- <Select>
-                    <template #item="{ id, text }">
-                      <div>{{ id }}-{{ text }}</div>
-                    </template>
-                  </Select> -->
-
+      <template #item="{ id, text }">
+        <div>{{ id }}-{{ text }}</div>
+      </template>
+    </Select> -->
   </div>
 </template>
 

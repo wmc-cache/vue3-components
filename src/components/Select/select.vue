@@ -1,7 +1,7 @@
 <template>
   <div style="height: 1px"></div>
   <div ref="inputRef" style="width: 300px; margin-left: 400px; margin-top: 200px">
-    <el-input @click="visibleRef = true" @focus="visibleRef = true" type="text" />
+    <el-input v-model="value"  @click="visibleRef = true" @focus="visibleRef = true" type="text" />
   </div>
   <Overlay v-if="inputRef" :target="inputRef" :visible="visibleRef" @close="visibleRef = false" :placement="placement">
     <div class="select-item" :class="{ 'item-checked': item.checked }" @click="selectItem(item)"
@@ -43,11 +43,14 @@ const inputRef = ref(null);
 
 const listData = reactive(props.data)
 
+const value = ref('')
+
 const selectItem = (item: any) => {
   if (!props.multiple) {
     listData.forEach(ele => ele.checked = false)
   }
   item.checked = !item.checked
+  value.value = item.text
 }
 </script>
 
