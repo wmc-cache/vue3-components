@@ -19,29 +19,35 @@ interface Tree {
   text: string;
   children?: Tree[];
   show: boolean;
+  id: number;
 }
 const arr: Tree[] | [] = [
   {
+    id: 1,
     rank: 1,
     text: "菜单1",
     show: true,
     children: [
       {
+        id: 2,
         rank: 2,
         text: "菜单1-1",
         show: false,
         children: [
           {
+            id: 3,
             rank: 3,
             text: "菜单1-1-1",
             show: true,
             children: [
               {
+                id: 4,
                 rank: 4,
                 text: "菜单1-1-2",
                 show: false,
                 children: [
                   {
+                    id: 5,
                     rank: 5,
                     text: "菜单1-1-3",
                     show: true,
@@ -54,7 +60,7 @@ const arr: Tree[] | [] = [
       },
     ],
   },
-  { rank: 1, text: "菜单2", show: true },
+  { id: 6, rank: 1, text: "菜单2", show: true },
 ];
 
 const value = useDebounceRef("");
@@ -62,13 +68,14 @@ const value = useDebounceRef("");
 
 <template>
   <div>
+    <Menu :data="arr"> </Menu>
     <!-- <pdf></pdf> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
     <!-- <List></List> -->
 
-    <many-point></many-point>
+    <!-- <many-point></many-point> -->
 
     <!-- <Icon :size="50" type="fixed"></Icon> -->
 
