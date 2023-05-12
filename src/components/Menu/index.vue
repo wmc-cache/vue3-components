@@ -23,16 +23,10 @@
       </span>
       <span v-else style="margin-left: 25px"></span>
 
-      <slot v-bind="item">
-        {{ item.text }}
-      </slot>
+      {{ item.text }}
     </div>
 
-    <tree v-if="item.children && item.show" :data="item.children">
-      <slot v-bind="item">
-        {{ item.text }}
-      </slot>
-    </tree>
+    <tree v-if="item.children && item.show" :data="item.children"> </tree>
   </div>
 </template>
 
