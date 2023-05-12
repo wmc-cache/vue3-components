@@ -68,7 +68,11 @@ const value = useDebounceRef("");
 
 <template>
   <div>
-    <Menu :data="arr"> </Menu>
+    <Menu :data="arr">
+      <template #default="{ text }">
+        <div>{{ text }}</div>
+      </template>
+    </Menu>
     <!-- <pdf></pdf> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
