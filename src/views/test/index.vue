@@ -62,17 +62,31 @@ const arr: Tree[] | [] = [
   },
   { id: 6, rank: 1, text: "菜单2", show: true },
 ];
+const data = ref([
+  { id: 1, text: "111", checked: false },
+  { id: 2, text: "222", checked: false },
+  { id: 1, text: "111", checked: false },
+  { id: 2, text: "222", checked: false },
+  { id: 1, text: "111", checked: false },
+  { id: 2, text: "222", checked: false },
+  { id: 1, text: "111", checked: false },
+  { id: 2, text: "222", checked: false },
+  { id: 1, text: "111", checked: false },
+  { id: 2, text: "222", checked: false },
+]);
 
 const value = useDebounceRef("");
+let id = 1;
+const getData = () => {
+  setTimeout(() => {
+    data.value.push({ id: id++, text: "1", checked: false });
+  }, 3000);
+};
 </script>
 
 <template>
   <div>
-    <Menu :data="arr">
-      <template #default="{ text }">
-        <div>{{ text }}</div>
-      </template>
-    </Menu>
+    <Menu :data="arr"></Menu>
     <!-- <pdf></pdf> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
@@ -82,12 +96,11 @@ const value = useDebounceRef("");
     <!-- <many-point></many-point> -->
 
     <!-- <Icon :size="50" type="fixed"></Icon> -->
-
-    <!-- <Select>
+    <Select @finally="getData" :data="data">
       <template #item="{ id, text }">
         <div>{{ id }}-{{ text }}</div>
       </template>
-    </Select> -->
+    </Select>
   </div>
 </template>
 

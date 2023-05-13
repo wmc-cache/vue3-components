@@ -1,7 +1,7 @@
 <template>
   <div v-for="(item, index) in data" :key="index" class="wrap">
     <div
-      @click="item.show = !item.show"
+      @click="clickItem(item)"
       :style="{ marginLeft: item.rank * 5 + 'px' }"
       class="item"
     >
@@ -22,8 +22,7 @@
         </div>
       </span>
       <span v-else style="margin-left: 25px"></span>
-
-      {{ item.text }}
+      <div>{{ item.text }}</div>
     </div>
 
     <tree v-if="item.children && item.show" :data="item.children"> </tree>
@@ -56,6 +55,11 @@ const rotate = (id: number, show: boolean) => {
     ele?.classList.add("rotate-90");
     ele?.classList.remove("rotate-0");
   }
+};
+
+const clickItem = (item: Tree) => {
+  item.show = !item.show;
+  console.log(item);
 };
 </script>
 
