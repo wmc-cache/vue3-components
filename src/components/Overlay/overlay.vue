@@ -29,6 +29,7 @@ const props = defineProps({
   },
   placement: {
     type: String as PropType<PlacementType>,
+    require:true,
     default: "top",
   },
   target: {

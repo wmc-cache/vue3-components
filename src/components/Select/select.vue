@@ -36,11 +36,12 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref, computed, reactive } from "vue";
+import { PropType, ref, reactive } from "vue";
+import { PlacementType } from "../Overlay/placement";
 import Overlay from "@/components/Overlay/overlay.vue";
 const props = defineProps({
   placement: {
-    type: String,
+    type: String as PropType<PlacementType>,
     default: "bottom",
   },
   visible: {
