@@ -87,6 +87,7 @@ const getData = () => {
 <template>
   <div>
     <Menu :data="arr"></Menu>
+
     <!-- <pdf></pdf> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
@@ -96,7 +97,8 @@ const getData = () => {
     <!-- <many-point></many-point> -->
 
     <!-- <Icon :size="50" type="fixed"></Icon> -->
-    <Select @finally="getData" :data="data">
+    
+    <Select multiple @finally="getData" :data="data">
       <template #item="{ id, text }">
         <div>{{ id }}-{{ text }}</div>
       </template>
