@@ -11,6 +11,7 @@ import Select from "@/components/Select/select.vue";
 import List from "@/components/List/list.vue";
 import manyPoint from "@/components/Point/manyPoint.vue";
 import pdf from "@/components/Pdf/pdf.vue";
+import {createMessage} from "@/components/Message/message"
 import { useDebounceRef } from "@/hooks/useDebounceRef";
 import { ref } from "vue";
 
@@ -74,7 +75,22 @@ const data = ref([
   { id: 1, text: "111", checked: false },
   { id: 2, text: "222", checked: false },
 ]);
+const close = createMessage({
+  type: 'error',
+  message: 'This is a success message.',
+  duration: 15000
+})
 
+
+const close2 = createMessage({
+  type: 'success',
+  message: 'This is a success message.',
+  duration: 5000
+})
+
+// setTimeout(()=>{
+//    close()
+// },3000)
 const value = useDebounceRef("");
 let id = 1;
 const getData = () => {

@@ -78,9 +78,9 @@ const selectItem = (item: any) => {
   value.value = item.text;
 };
 
-const scroll = (e: any) => {
-  // console.log(e)
-  if (e.target.scrollHeight - e.target.scrollTop < e.target.clientHeight + 10) {
+const scroll = (e:Event) => {
+  const target = e.target as HTMLElement;
+  if (target.scrollHeight - target.scrollTop < target.clientHeight + 10) {
     emit("finally");
   }
 };
