@@ -13,6 +13,7 @@ import manyPoint from "@/components/Point/manyPoint.vue";
 import pdf from "@/components/Pdf/pdf.vue";
 import {createMessage} from "@/components/Message/message"
 import { useDebounceRef } from "@/hooks/useDebounceRef";
+import Table from "@/components/Table/table.vue"
 import { ref } from "vue";
 
 interface Tree {
@@ -75,18 +76,18 @@ const data = ref([
   { id: 1, text: "111", checked: false },
   { id: 2, text: "222", checked: false },
 ]);
-const close = createMessage({
-  type: 'error',
-  message: 'This is a success message.',
-  duration: 15000
-})
+// const close = createMessage({
+//   type: 'error',
+//   message: 'This is a success message.',
+//   duration: 15000
+// })
 
 
-const close2 = createMessage({
-  type: 'success',
-  message: 'This is a success message.',
-  duration: 5000
-})
+// const close2 = createMessage({
+//   type: 'success',
+//   message: 'This is a success message.',
+//   duration: 5000,
+// })
 
 // setTimeout(()=>{
 //    close()
@@ -102,7 +103,7 @@ const getData = () => {
 
 <template>
   <div>
-    <Menu :data="arr"></Menu>
+    <!-- <Menu :data="arr"></Menu> -->
 
     <!-- <pdf></pdf> -->
 
@@ -114,11 +115,12 @@ const getData = () => {
 
     <!-- <Icon :size="50" type="fixed"></Icon> -->
     
-    <Select multiple @finally="getData" :data="data">
+    <!-- <Select multiple @finally="getData" :data="data">
       <template #item="{ id, text }">
         <div>{{ id }}-{{ text }}</div>
       </template>
-    </Select>
+    </Select> -->
+    <Table></Table>
   </div>
 </template>
 

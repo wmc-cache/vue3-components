@@ -9,10 +9,10 @@ export interface MessageOption {
   duration?: number
 }
 
-export const createMessage = (options: MessageOption) => {
+export const createMessage = (options: MessageOption): Function => {
   const { type, message, duration } = options
   const div = document.createElement('div')
-  const id = `message${(Math.random()*100000).toFixed(0)}`
+  const id = `message${(Math.random() * 100000).toFixed(0)}`
   div.id = id
   document.body.appendChild(div)
   const app = createApp(Message, {
