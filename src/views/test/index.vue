@@ -12,6 +12,7 @@ import List from "@/components/List/list.vue";
 import manyPoint from "@/components/Point/manyPoint.vue";
 import pdf from "@/components/Pdf/pdf.vue";
 import { useDebounceRef } from "@/hooks/useDebounceRef";
+import computed  from "@/components/Computed/index.vue";
 import { ref } from "vue";
 
 interface Tree {
@@ -62,7 +63,8 @@ const value = useDebounceRef('')
 
 <template>
   <div>
-   <pdf></pdf>
+   <!-- <pdf></pdf> -->
+   <computed></computed>
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
