@@ -46,7 +46,7 @@ setTimeout(() => {
 
 
 
-  <style>
+<style scoped>
 .message {
   padding: 1rem;
   margin-bottom: 1rem;
