@@ -13,7 +13,11 @@ import manyPoint from "@/components/Point/manyPoint.vue";
 import pdf from "@/components/Pdf/pdf.vue";
 import {createMessage} from "@/components/Message/message"
 import { useDebounceRef } from "@/hooks/useDebounceRef";
+<<<<<<< HEAD
 import Table from "@/components/Table/table.vue"
+=======
+import computed  from "@/components/Computed/index.vue";
+>>>>>>> 3ddf804d8ca3aa71cfc5ccc12f2c3f5eb6154b1a
 import { ref } from "vue";
 
 interface Tree {
@@ -103,9 +107,14 @@ const getData = () => {
 
 <template>
   <div>
+<<<<<<< HEAD
     <!-- <Menu :data="arr"></Menu> -->
 
     <!-- <pdf></pdf> -->
+=======
+   <!-- <pdf></pdf> -->
+   <computed></computed>
+>>>>>>> 3ddf804d8ca3aa71cfc5ccc12f2c3f5eb6154b1a
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
