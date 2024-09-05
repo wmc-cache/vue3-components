@@ -11,6 +11,7 @@ import Select from "@/components/Select/select.vue";
 import List from "@/components/List/list.vue";
 import manyPoint from "@/components/Point/manyPoint.vue";
 import pdf from "@/components/Pdf/pdf.vue";
+import LowcodeEditor from "@/components/LowcodeEditor/index.vue";
 import {createMessage} from "@/components/Message/message"
 import { useDebounceRef } from "@/hooks/useDebounceRef";
 import computed  from "@/components/Computed/index.vue";
@@ -103,8 +104,10 @@ const getData = () => {
 
 <template>
   <div>
+  <LowcodeEditor></LowcodeEditor>
+    <!-- <Menu :data="arr"></Menu> -->
    <!-- <pdf></pdf> -->
-   <computed></computed>
+   <!-- <computed></computed> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
@@ -119,7 +122,7 @@ const getData = () => {
         <div>{{ id }}-{{ text }}</div>
       </template>
     </Select> -->
-    <Table></Table>
+    <!-- <Table></Table> -->
   </div>
 </template>
 
