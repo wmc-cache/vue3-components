@@ -8,6 +8,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 import L from 'leaflet';
+import 'leaflet/dist/leaflet.css'
 
 onMounted(() => {
     const bounds = L.latLngBounds(L.latLng(0, 0), L.latLng(-256, 256))
