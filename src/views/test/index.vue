@@ -14,6 +14,8 @@ import pdf from "@/components/Pdf/pdf.vue";
 import { useDebounceRef } from "@/hooks/useDebounceRef";
 import computed  from "@/components/Computed/index.vue";
 import { ref } from "vue";
+import OpenLayers from '@/components/OpenLayers/index.vue'
+import Leaflet from '@/components/Leaflet/index.vue'
 
 interface Tree {
   rank: number;
@@ -58,13 +60,18 @@ const arr: Tree[] | [] = [
   { rank: 1, text: "菜单2", show: true },
 ];
 
+// [13735580.44, 3635037.95]
 const value = useDebounceRef('')
 </script>
 
 <template>
   <div>
-   <!-- <pdf></pdf> -->
-   <computed></computed>
+    <!-- <pdf></pdf> -->
+    <!-- <computed></computed> -->
+
+    <Leaflet></Leaflet>
+
+    <!-- <OpenLayers></OpenLayers> -->
 
     <!-- <el-input v-model="value" placeholder=""></el-input> -->
 
