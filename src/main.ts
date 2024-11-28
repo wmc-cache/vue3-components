@@ -7,6 +7,8 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import "dayjs/locale/zh-cn";
 import "./styles/index.scss";
+import "./css/main.less";
+import "leaflet.zoomslider";
 
 const app = createApp(App);
 dayjs.locale("zh-ch");
